@@ -6,20 +6,22 @@ This is my land of creativity. Being a art lover, i wanted to create an web app 
 
 # As a user i can: #
 signup/login to an account
+
 click on an image url to display a product
+
 add items to cart
+
 edit or delete number of items in cart
 
 # Wireframes #
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/poojadave/Downloads/20220611_031917.jpg?version%3D1654898878761)
+[![20220611-032011.jpg](https://i.postimg.cc/GhHZ3Y5C/20220611-032011.jpg)](https://postimg.cc/4mR8BKGL)
 
-
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/poojadave/Downloads/20220611_032011.jpg?version%3D1654898867161)
+[![20220611-031917.jpg](https://i.postimg.cc/VsHVhvLH/20220611-031917.jpg)](https://postimg.cc/K4BfkZTn)
 
 # ERD: #
 
 
-
+[![20220611-033041.jpg](https://i.postimg.cc/8cFtGdPX/20220611-033041.jpg)](https://postimg.cc/2LD4FZWn)
 
 
 
