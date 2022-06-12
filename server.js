@@ -28,12 +28,13 @@ const {Schema, model } = mongoose;
 
 //Make productsSchema
 const productsSchema = new Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
-    description: String,
+
     img: String,
+
     price: {
         type: Number,
         min: 0
@@ -65,6 +66,38 @@ app.use(express.static("public")); // serve files from public statically
 ////////////////////////////////////////////
 app.get("/", (req, res) => {
   res.send("your server is running... better catch it.");
+});
+
+app.get("/products/seed", (req, res) => {
+    const newProducts = [
+        {
+            title : "Handmade multicolor lacy summer crochet top blouse",
+            img : "https://i.etsystatic.com/25901164/r/il/342f6d/3266146076/il_1588xN.3266146076_d6qs.jpg",
+            price : 44,
+            quantity : 1,
+        },
+        {
+            title : "Womens handmade crochet spring/fall bohemian turtleneck scarf/wrap, beige scarf",
+            img : "https://i.etsystatic.com/25901164/r/il/d8c0d4/2968735721/il_1588xN.2968735721_hsze.jpg",
+            price : 50,
+            quantity : 5,
+
+        },
+        {
+            title : "Crochet handmade multicolor chunky warm beanie hat",
+            img : "https://i.etsystatic.com/25901164/r/il/e3a84c/2733061992/il_1588xN.2733061992_obro.jpg",
+            price : 25,
+            quantity : 3,
+        },
+    ]
+    
+    Product.deleteMany({}).then((data) => {
+        Product.create(newProducts).then((data) => {
+          res.json(data);
+});
+
+    });
+
 });
 
 //////////////////////////////////////////////
