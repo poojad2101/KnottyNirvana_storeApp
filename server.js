@@ -89,6 +89,25 @@ app.get("/products/seed", (req, res) => {
             price : 25,
             quantity : 3,
         },
+        {
+            title : "warm crochet slipper winter multicolor slipper booties",
+            img : "https://i.etsystatic.com/25901164/r/il/2e4715/2769120600/il_340x270.2769120600_bqfp.jpg",
+            price : 30,
+            quantity : 7,
+
+        },
+        {
+            title: "crochet beaded pink top",
+            img : "https://i.etsystatic.com/25901164/c/2250/1786/0/102/il/dbb8d7/2830751084/il_340x270.2830751084_rbyn.jpg",
+            price : 70,
+        },
+        {
+            title: "Toddler layered dress kids spring summer dress",
+            img : "https://i.etsystatic.com/25901164/r/il/bffcdc/2792237178/il_340x270.2792237178_9c29.jpg",
+            price : 40,
+            quantity: 5
+
+        },
     ]
     
     Product.deleteMany({}).then((data) => {
@@ -99,6 +118,14 @@ app.get("/products/seed", (req, res) => {
     });
 
 });
+
+//Index Route
+app.get("/products", async (req, res) => {
+    const products = await Product.find({});
+    res.render("fruits/index.liquid", { products });
+});
+
+
 
 //////////////////////////////////////////////
 // Server Listener
