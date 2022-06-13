@@ -76,13 +76,13 @@ app.get("/products/seed", (req, res) => {
             title : "Handmade multicolor lacy summer crochet top blouse",
             image : "https://i.etsystatic.com/25901164/r/il/342f6d/3266146076/il_1588xN.3266146076_d6qs.jpg",
             price : 44,
-            // qty : 1,
+            qty : 1,
         },
         {
             title : "Womens handmade crochet spring/fall bohemian turtleneck scarf/wrap, beige scarf",
             image : "https://i.etsystatic.com/25901164/r/il/d8c0d4/2968735721/il_1588xN.2968735721_hsze.jpg",
             price : 50,
-            // qty : 5,
+            qty : 5,
 
         },
         {
@@ -131,15 +131,16 @@ app.get("/products", async (req, res) => {
 //Show Route
 app.get("/products/:id", (req, res) => {
     const id = req.params.id;
-
-    Product.findBy(id)
-    .then((fruit) => {
-        res.render("fruits/show.liquid", { fruit });
+    Product.findById(id)
+      .then((product) => {
+        // render the template with the data from the database
+        res.render("products/show.liquid", { product });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
     })
-    .catch((error) => {
-        res.json({error});
-    })
-});
 
 
 //////////////////////////////////////////////
