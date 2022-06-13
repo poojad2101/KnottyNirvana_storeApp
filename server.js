@@ -155,9 +155,9 @@ app.get("/products/:id/edit", (req, res) => {
     const id = req.params.id;
 
     Product.findById(id)
-      .then((productt) => {
+      .then((product) => {
     
-        res.render("products/edit.liquid", { productt });
+        res.render("products/edit.liquid", { product });
       })
       // send error as json
       .catch((error) => {
@@ -181,6 +181,23 @@ app.get("/products/:id", (req, res) => {
         });
 })
 
+//update route
+app.put("/products/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+
+    Product.findByIdAndUpdate(id, req.body, { new: true })
+      .then((product) => {
+        // redirect to main page after updating
+        res.redirect("/products");
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
+  
 
 //////////////////////////////////////////////
 // Server Listener
