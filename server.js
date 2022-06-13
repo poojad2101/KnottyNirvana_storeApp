@@ -33,7 +33,7 @@ const productsSchema = new Schema({
         required: true
     },
 
-    img: String,
+    img_url: String,
 
     price: {
         type: Number,
@@ -72,40 +72,41 @@ app.get("/products/seed", (req, res) => {
     const newProducts = [
         {
             title : "Handmade multicolor lacy summer crochet top blouse",
-            img : "https://i.etsystatic.com/25901164/r/il/342f6d/3266146076/il_1588xN.3266146076_d6qs.jpg",
+            img_url : "https://i.etsystatic.com/25901164/r/il/342f6d/3266146076/il_1588xN.3266146076_d6qs.jpg",
             price : 44,
-            quantity : 1,
+            qty : 1,
         },
         {
             title : "Womens handmade crochet spring/fall bohemian turtleneck scarf/wrap, beige scarf",
-            img : "https://i.etsystatic.com/25901164/r/il/d8c0d4/2968735721/il_1588xN.2968735721_hsze.jpg",
+            img_url : "https://i.etsystatic.com/25901164/r/il/d8c0d4/2968735721/il_1588xN.2968735721_hsze.jpg",
             price : 50,
-            quantity : 5,
+            qty : 5,
 
         },
         {
             title : "Crochet handmade multicolor chunky warm beanie hat",
-            img : "https://i.etsystatic.com/25901164/r/il/e3a84c/2733061992/il_1588xN.2733061992_obro.jpg",
+            img_url : "https://i.etsystatic.com/25901164/r/il/e3a84c/2733061992/il_1588xN.2733061992_obro.jpg",
             price : 25,
-            quantity : 3,
+            qty : 3,
         },
         {
             title : "warm crochet slipper winter multicolor slipper booties",
-            img : "https://i.etsystatic.com/25901164/r/il/2e4715/2769120600/il_340x270.2769120600_bqfp.jpg",
+            img_url : "https://i.etsystatic.com/25901164/r/il/2e4715/2769120600/il_340x270.2769120600_bqfp.jpg",
             price : 30,
-            quantity : 7,
+            qty : 7,
 
         },
         {
             title: "crochet beaded pink top",
-            img : "https://i.etsystatic.com/25901164/c/2250/1786/0/102/il/dbb8d7/2830751084/il_340x270.2830751084_rbyn.jpg",
+            img_url : "https://i.etsystatic.com/25901164/c/2250/1786/0/102/il/dbb8d7/2830751084/il_340x270.2830751084_rbyn.jpg",
             price : 70,
+            qty: 2
         },
         {
             title: "Toddler layered dress kids spring summer dress",
-            img : "https://i.etsystatic.com/25901164/r/il/bffcdc/2792237178/il_340x270.2792237178_9c29.jpg",
+            img_url : "https://i.etsystatic.com/25901164/r/il/bffcdc/2792237178/il_340x270.2792237178_9c29.jpg",
             price : 40,
-            quantity: 5
+            qty: 5
 
         },
     ]
@@ -122,7 +123,7 @@ app.get("/products/seed", (req, res) => {
 //Index Route
 app.get("/products", async (req, res) => {
     const products = await Product.find({});
-    res.render("fruits/index.liquid", { products });
+    res.render("products/index.liquid", { products });
 });
 
 
