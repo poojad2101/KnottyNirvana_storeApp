@@ -1,0 +1,26 @@
+{% layout "layout.liquid" %} {% block content %} -->
+<div>
+    <form action="/products/{{product._id}}?_ method=" PUT" method="post">
+        <fieldset>
+            <legend>Edit {{product.title}}</legend>
+
+
+            <label>
+                TITLE:<input type="text" name="title" placeholder="enter product title" value="{{product.title}}" />
+            </label>
+            <label>
+                IMG URL:<input type="text" name="image" placeholder="img_url" />
+            </label>
+            <label>
+                PRICE:<input type="text" name="price" placeholder="price" />
+            </label>
+            <label>
+                QTY:<input type="text" name="qty" placeholder="quantity" />
+            </label>
+        </fieldset>
+        <input type="submit" value="Edit {{product.name}}" />
+    </form>
+</div>
+{% endblock %}
+
+</form>

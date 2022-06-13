@@ -128,14 +128,9 @@ app.get("/products", async (req, res) => {
     res.render("products/index.liquid", { products });
 });
 
-// create route
-// app.post("/products/create", (req, res) => {
-
-
 
 app.post('/products/', (req, res) => {
-    //     Product.push(req.body)
-    //     res.redirect('/products')
+    
     Product.create(req.body)
         .then((products) => {
             console.log(products)
@@ -148,16 +143,29 @@ app.post('/products/', (req, res) => {
 })
 
 
-
-
-
 // new route
 app.get("/products/new", (req, res) => {
     res.render("products/new");
 });
 
 
+// edit route
+app.get("/products/:id/edit", (req, res) => {
 
+    const id = req.params.id;
+
+    Product.findById(id)
+      .then((productt) => {
+    
+        res.render("products/edit.liquid", { productt });
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
+  
 
 //Show Route
 app.get("/products/:id", (req, res) => {
