@@ -1,14 +1,15 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  {% for products in products %}
+  {% for product in products %}
   <article>
+      <img src="{{ product.image }}"alt="product" width="200px">
     <a href="/products/{{ products._id }}">
         <h3>
-        {{ products.title }} } 
+        {{ product.title }}
+        
        </h3>
-           <img src="{{ products.img_url }}.jpg">
-            {{ products.price }} 
-            {{ qty }}
+            ${{ product.price }} 
+            {{ product.qty }}
     </a>
   </article>
   {% endfor %}
