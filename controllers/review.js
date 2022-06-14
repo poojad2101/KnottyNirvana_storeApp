@@ -2,11 +2,11 @@
 
 const express = require("express");
 const Review = require("../models/reviews");
-
+const Product = require("../models/products")
 ////////////////////////////////////////////
 // Create route
-////////////////////////////////////////////
 const router = express.Router()
+////////////////////////////////////////////
 
 ////////////////////////////////////////////
 // Routes
@@ -35,8 +35,14 @@ router.post("/", (req, res) => {
 
 
 // new route
-router.get("/new", (req, res) => {
-    res.render("reviews/new");
+router.get("/:id/new", (req, res) => {
+    Product.findById(req.params.id)
+    .then((product) => {
+        res.render("reviews/new", {
+            product
+        });
+    })
+//     res.render("reviews/new");
 });
 
 

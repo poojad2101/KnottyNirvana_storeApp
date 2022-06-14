@@ -1,0 +1,20 @@
+{% layout "layout.liquid" %} {% block content %} -->
+<div>
+    <img src="{{ product.image }}"alt="product" width="200px">
+    <form action="/reviews/" method="post">
+        <fieldset>
+            <!-- <legend>Add a New Review</legend> -->
+            
+
+            <label>TITLE:<input type="text" name="title" placeholder="review title" /> </label>
+            <label> content:<input type="text" placeholder="write here" /> </label> -->
+            <!-- <label> PRICE:<input type="text" name="price" placeholder="price" /> </label> -->
+            <!-- <label> QTY:<input type="text" name="qty" placeholder="quantity" /> </label> -->
+            
+        </fieldset>
+        <input type="submit" value="Add a new Review" />
+    </form>
+</div>
+{% endblock %}
+
+</form>

@@ -4,12 +4,16 @@ const { Schema, model } = mongoose;
 
 
 ///make reviews schema
-const reviewsSchema = new schema ({
+const reviewsSchema = new Schema ({
     content: String,
-    username : String,
-    timestamps : true,
+    },
 
-})
+    {
+    username : String,
+
+    timestamps : true
+});
+
 //make reviews model
 const Review = model('Review', reviewsSchema)
 
