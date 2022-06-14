@@ -1,4 +1,4 @@
-{% layout "layout.liquid" %} {% block content %} -->
+{% layout "layout.liquid" %} {% block content %}
 <div>
     <img src="{{ product.image }}"alt="product" width="200px">
     <form action="/reviews/" method="post">
@@ -7,12 +7,20 @@
             
 
             <label>TITLE:<input type="text" name="title" placeholder="review title" /> </label>
-            <label> content:<input type="text" placeholder="write here" /> </label> -->
+            <label> CONTENT:<input type="text" placeholder="type here" /> </label>
             <!-- <label> PRICE:<input type="text" name="price" placeholder="price" /> </label> -->
             <!-- <label> QTY:<input type="text" name="qty" placeholder="quantity" /> </label> -->
             
         </fieldset>
         <input type="submit" value="Add a new Review" />
+        <a href="/reviews/{{ product._id }}/edit"><button>Edit</button></a>
+
+          <form action="/reviews/{{ product._id }}?_method=DELETE" method="POST">
+
+            
+
+            <input type="submit" value="Delete" />
+            
     </form>
 </div>
 {% endblock %}
