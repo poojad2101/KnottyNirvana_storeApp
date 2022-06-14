@@ -31,7 +31,7 @@ app.use(express.static("public")); // serve files from public statically
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
-app.use("/product", ProductRouter);
+app.use("/products", ProductRouter);
 
 app.get("/", (req, res) => {
     res.send("your server is running... better catch it.");
