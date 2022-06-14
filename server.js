@@ -102,7 +102,7 @@ app.get("/products/seed", (req, res) => {
             title: "crochet beaded pink top",
             image: "https://i.etsystatic.com/25901164/c/2250/1786/0/102/il/dbb8d7/2830751084/il_340x270.2830751084_rbyn.jpg",
             price: 70,
-            qty: 2
+            qty: 2,
         },
         {
             title: "Toddler layered dress kids spring summer dress",
