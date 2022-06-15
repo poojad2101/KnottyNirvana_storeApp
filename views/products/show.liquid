@@ -20,8 +20,8 @@
     <a href="/products/{{ product._id }}/edit"><button>Edit</button></a>
 
     <form action="/products/{{ product._id }}?_method=DELETE" method="POST">
-
-
+      
+      
 
       <input type="submit" value="Delete" />
 
@@ -30,7 +30,7 @@
         <br><br>
          <h2>Reviews</h2>
          <form id="add-review-form" method="POST" 
-         action="/productss/<%= product._id %>/reviews">
+         action="/products/{{ product._id }}/reviews">
          <label>Review:</label>
          <textarea name="content"></textarea>
          <label>Rating:</label>

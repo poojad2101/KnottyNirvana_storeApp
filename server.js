@@ -35,11 +35,11 @@ app.use(express.static("public")); // serve files from public statically
 // Routes
 ////////////////////////////////////////////
 app.use("/products", ProductRouter);
-app.use("/reviews", ReviewRouter);
+app.use("/", ReviewRouter);
 app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
-    res.send("your server is running... better catch it.");
+    res.render("index.liquid");
 });
 
 

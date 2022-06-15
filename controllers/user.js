@@ -52,7 +52,7 @@ router.get("/login", async (req, res) => {
         const result = await bcrypt.compare(password, user.password);
         if (result) {
           // redirect to fruits page if successful
-          res.redirect("/fruits");
+          res.redirect("/products");
         } else {
           // error if password doesn't match
           res.json({ error: "password doesn't match" });

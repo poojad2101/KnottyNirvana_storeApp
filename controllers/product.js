@@ -44,12 +44,10 @@ router.get("/new", (req, res) => {
 });
 
 
-//route for reviews
+// //route for reviews
+// router.post('/products/:id/reviews', (req, res) => {
 
-
-router.post('/products/:id/reviews', (req, res) => {
-
-})
+// })
     
 
 // edit route
