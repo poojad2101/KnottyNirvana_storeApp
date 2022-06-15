@@ -30,7 +30,7 @@ router.post("/products/:id/reviews", (req, res) => {
 //Index Route
 
 router.get("/", async (req, res) => {
-    const reviews = await Review.find();
+    const reviews = await Product.find();
     res.render("reviews/index.liquid", { reviews });
 });
 
@@ -82,7 +82,7 @@ router.get("/:id/edit", (req, res) => {
 //Show Route
 router.get("/:id", (req, res) => {
     const id = req.params.id;
-    Review.findById(id)
+    Product.findById(id)
         .then((review) => {
             // render the template with the data from the database
             res.render("reviews/show.liquid", { review });
