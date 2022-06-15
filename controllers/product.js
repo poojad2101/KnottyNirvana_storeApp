@@ -44,6 +44,14 @@ router.get("/new", (req, res) => {
 });
 
 
+//route for reviews
+
+
+router.post('/products/:id/reviews', (req, res) => {
+
+})
+    
+
 // edit route
 router.get("/:id/edit", (req, res) => {
 

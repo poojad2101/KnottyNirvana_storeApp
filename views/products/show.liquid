@@ -1,33 +1,51 @@
 {% layout "layout.liquid" %} {% block content %}
-      <div>
-        <article>
-          <h3>
+<div>
+  <article>
+    <h3>
 
-            {{ product.title }} 
+      {{ product.title }}
 
-            <img src="{{ product.image }}"alt="product" width="200px">
-            </h3>
-            <br />
-            Price: ${{ product.price }}
-            <br />
+      <img src="{{ product.image }}" alt="product" width="200px">
+    </h3>
+    <br />
+    Price: ${{ product.price }}
+    <br />
 
-            {{ product.qty }} in Stock
+    {{ product.qty }} in Stock
 
-            <br />
+    <br />
 
 
 
-          <a href="/products/{{ product._id }}/edit"><button>Edit</button></a>
+    <a href="/products/{{ product._id }}/edit"><button>Edit</button></a>
 
-          <form action="/products/{{ product._id }}?_method=DELETE" method="POST">
+    <form action="/products/{{ product._id }}?_method=DELETE" method="POST">
 
-            
 
-            <input type="submit" value="Delete" />
 
-          </form>
+      <input type="submit" value="Delete" />
 
-          <a href="/products/"><button>Back to Main</button></a>
-        </article>
-      </div>
+    </form>
+
+        <br><br>
+         <h2>Reviews</h2>
+         <form id="add-review-form" method="POST" 
+         action="/productss/<%= product._id %>/reviews">
+         <label>Review:</label>
+         <textarea name="content"></textarea>
+         <label>Rating:</label>
+         <select name="rating">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5" selected>5</option>
+         </select>
+         <input type="submit" value="Add Review">
+       </form>
+
+
+    <a href="/products/"><button>Back to Main</button></a>
+  </article>
+</div>
 {% endblock %}
