@@ -127,7 +127,7 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:productId/:reviewId", (req, res) => {
     console.log('HI');
-    const productId = req.body.productId
+    const productId = req.params.productId
     console.log('productid', productId);
     const reviewId = req.params.reviewId
     console.log('review', reviewId);
@@ -135,7 +135,7 @@ router.delete("/:productId/:reviewId", (req, res) => {
       
       .then(product => {
         console.log(product);
-        const productReview = product.review.id(reviewId)
+        const productReview = product.reviews.id(reviewId)
         if(String(productReview._id) === String(req.params.reviewId)) {
             console.log('here')
             productReview.remove()
