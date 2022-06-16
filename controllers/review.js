@@ -152,11 +152,39 @@ router.delete("/:productId/:reviewId", (req, res) => {
     
 });
 
+//edit
+router.get("/:id/:reviewId/reviews/edit", (req, res) => {
+    Product.findById(req.params.id).then((product) => {
+        res.render("reviews/edit.liquid", {
+            product: product,
+            reviewId: req.params.reviewId,
+        });
+    });
+});
 
 
 
-
-
-
+router.put("/:productId/:reviewId", (req, res) => {
+    const productId = req.params.productId;
+    console.log("productid", productId);
+    const reviewId = req.params.reviewId;
+    console.log("review", reviewId);
+    Product.findById(productId)
+        .then((product) => {
+            console.log(product);
+            const productReview = product.reviews.id(reviewId);
+            if (String(productReview._id) === String(req.params.reviewId)) {
+                productReview.content = req.body.content
+                productReview.rating = req.body.rating
+                return product.save();
+            } else {
+                return;
+            }
+        })
+        .then((post) => {
+            res.redirect(`/products/${productId}`);
+        });
+})
+    
 ///// Export the Router
 module.exports = router;

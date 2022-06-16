@@ -55,13 +55,14 @@
         {% for review in product.reviews %}
 
         {{ review.content }}  {{ review.rating}}
-        <a href="/reviews/{{ product._id }}/edit"><button>Edit</button></a>
+        <a href="/{{ product._id }}/{{ review._id }}/reviews/edit">Edit</button>
+      </a>
          
         <form
         action="/{{ product._id }}/{{ review._id }}?_method=DELETE"
         method="POST"
       >
-        <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
+        <input type="submit" value="Delete" />
         <!-- <input type="hidden" value="{{ product._id }}" name="postId" /> -->
       </form>
       <br />
