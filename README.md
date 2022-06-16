@@ -5,26 +5,22 @@ This is my land of creativity. Being a art lover, i wanted to create an web app 
 
 
 # As a user i can: #
-signup/login to an account
 
-click on an image url to display a product
+add product
 
-add items to cart
+edit or delete products
 
-edit or delete number of items in cart
+post, edit and delete reviews
+
+user signup/login
 
 # Wireframes #
 [![20220611-032011.jpg](https://i.postimg.cc/GhHZ3Y5C/20220611-032011.jpg)](https://postimg.cc/4mR8BKGL)
 
-[![20220611-031917.jpg](https://i.postimg.cc/VsHVhvLH/20220611-031917.jpg)](https://postimg.cc/K4BfkZTn)
 
 # ERD: #
 
-
-[20220613-133713-1.jpg](https://postimg.cc/dDRTTvJJ)
-
-
-
+[![20220613-133713-1.jpg](https://i.postimg.cc/C5yd6XWQ/20220613-133713-1.jpg)](https://postimg.cc/JDq1s67N)
 
 # Technologies Used #
 JavaScript
