@@ -47,16 +47,17 @@
          
          <a href="/reviews/{{ product._id }}/delete"><button>Delete</button></a>
 
-    <form action="/products/{{ product._id }}?_method=DELETE" method="POST">
 
-       </form>
+         <form action="/products/{{ product._id }}?_method=DELETE" method="POST">
 
-       {% for review in product.reviews %}
+         </form>
 
-       {{ review.content }}
-       <br />
-       {{ review.rating}}
-       <br />
+        {% for review in product.reviews %}
+
+        {{ review.content }}  {{ review.rating}}
+      <br />
+       <!-- {{ review.rating}} -->
+      <br />
        {% endfor %}
     <a href="/products/"><button>Back to Main</button></a>
   </article>
