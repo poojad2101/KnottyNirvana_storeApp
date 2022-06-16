@@ -110,20 +110,50 @@ router.put("/:id", (req, res) => {
         });
 });
 
-router.delete("/:id", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    Review.findByIdAndRemove(id)
-        .then((review) => {
-            // redirect to main page after deleting
-            res.redirect("/reviews");
-        })
-        // send error as json
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
+// router.delete("/:id", (req, res) => {
+//     // get the id from params
+//     const id = req.params.id;
+//     Review.findByIdAndRemove(id)
+//         .then((review) => {
+//             // redirect to main page after deleting
+//             res.redirect("/reviews");
+//         })
+//         // send error as json
+//         .catch((error) => {
+//             console.log(error);
+//             res.json({ error });
+//         });
+// });
+
+router.delete("/:productId/:reviewId", (req, res) => {
+    console.log('HI');
+    const productId = req.body.productId
+    console.log('productid', productId);
+    const reviewId = req.params.reviewId
+    console.log('review', reviewId);
+    Product.findById(productId)
+      
+      .then(product => {
+        console.log(product);
+        const productReview = product.review.id(reviewId)
+        if(String(productReview._id) === String(req.params.reviewId)) {
+            console.log('here')
+            productReview.remove()
+            return product.save()
+        }
+        else {
+            return
+        }
+        
+      })
+      .then(product => {
+            res.redirect(`/products/${productId}`);
+      })
+    
 });
+
+
+
 
 
 
