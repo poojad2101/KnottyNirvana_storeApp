@@ -29,7 +29,7 @@ Mongo / Mongoose
 
 
 # Stretch goals #
-
+add a shopping cart where a user can add, edit, delete items in the cart.
 
 
 
