@@ -1,8 +1,8 @@
 //Import dependencies
 
 const express = require("express");
-// const Review = require("../models/reviews");
 const Product = require("../models/products")
+
 ////////////////////////////////////////////
 // Create route
 const router = express.Router()
@@ -13,7 +13,6 @@ const router = express.Router()
 ////////////////////////////////////////////
 router.post("/products/:id/reviews", (req, res) => {
     Product.findById(req.params.id, (error, product) => {
-        //   req.body.username = req.session.username;
         product.reviews.push(req.body);
         console.log(product)
         product.save((error) => {
@@ -57,7 +56,7 @@ router.get("/:id/new", (req, res) => {
                 product
             });
         })
-    //     res.render("reviews/new");
+
 });
 
 
@@ -110,21 +109,8 @@ router.put("/:id", (req, res) => {
         });
 });
 
-// router.delete("/:id", (req, res) => {
-//     // get the id from params
-//     const id = req.params.id;
-//     Review.findByIdAndRemove(id)
-//         .then((review) => {
-//             // redirect to main page after deleting
-//             res.redirect("/reviews");
-//         })
-//         // send error as json
-//         .catch((error) => {
-//             console.log(error);
-//             res.json({ error });
-//         });
-// });
 
+//delete
 router.delete("/:productId/:reviewId", (req, res) => {
     console.log('HI');
     const productId = req.params.productId

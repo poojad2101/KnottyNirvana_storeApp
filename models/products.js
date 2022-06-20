@@ -6,9 +6,6 @@ const mongoose = require("./connection");
 
 const { Schema, model } = mongoose;
 
-
-
-
 const reviewSchema = new Schema({
     content: String,
     rating: {type: Number, min: 1, max: 5, default: 5}
@@ -40,11 +37,6 @@ const productsSchema = new Schema({
 }, {
     timestamps: true
 });
-
-
-
-
-
 
 //Make product model
 const Product = model('Product', productsSchema)

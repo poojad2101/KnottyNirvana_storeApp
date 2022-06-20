@@ -1,9 +1,9 @@
-{% layout "layout.liquid" %} {% block content %}
-<div>
+   {% layout "layout.liquid" %} {% block content %}
+  <div>
   <a href="/products/new"><button>Add Product</button></a>
   {% for product in products %}
   <article>
-      <img src="{{ product.image }}"alt="product" width="200px">
+      <img src="{{ product.image }}"alt="product" width="150px">
 
     <a href="/products/{{ product._id }}">
         <h3>
@@ -21,7 +21,7 @@
 
             <br />
 
-            <!-- <a href="/reviews/{{product._id}}/new"><button>Add a Review</button></a> -->
+            
     </a>
   </article>
   {% endfor %}
