@@ -6,7 +6,19 @@ const Product = require("../models/products");
 ////////////////////////////////////////////
 // Create route
 ////////////////////////////////////////////
-const router = express.Router()
+const router = express.Router();
+
+////////////////////////////////////////
+// Router Middleware
+////////////////////////////////////////
+// Authorization Middleware
+router.use((req, res, next) => {
+    if (req.session.loggedIn) {
+      next();
+    } else {
+      res.redirect("/user/login");
+    }
+  });
 
 ////////////////////////////////////////////
 // Routes

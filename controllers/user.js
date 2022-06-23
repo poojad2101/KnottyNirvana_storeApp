@@ -20,13 +20,11 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  // encrypt password
+  //encrypt password
   req.body.password = await bcrypt.hash(
     req.body.password,
-    await bcrypt.genSalt(10)
-  );
-  // create new user
-  User.create(req.body)
+    await bcrypt.genSalt(10))
+    User.create(req.body)
     .then((user) => {
       // redirect to login page
       res.redirect("/user/login");
@@ -36,11 +34,27 @@ router.post("/signup", async (req, res) => {
       console.log(error);
       res.json({ error });
     });
-});
-  
+  });
+// create the new user
+// User.create(req.body)
+//     .then((user) => {
+//       // redirect to login page
+//       res.redirect("/user/login");
+//     })
+//     .catch((error) => {
+//       // send error as json
+//       console.log(error);
+//       res.json({ error });
+//     });
+
+
 
 // The login Routes (Get => form, post => submit form)
-router.get("/login", async (req, res) => {
+router.get("/login", (req, res) => {
+  res.render("user/login.liquid");
+});
+
+router.post("/login", (req, res) => {
   // get the data from the request body
   const { username, password } = req.body;
   // search for the user
@@ -51,7 +65,10 @@ router.get("/login", async (req, res) => {
         // compare password
         const result = await bcrypt.compare(password, user.password);
         if (result) {
-          // redirect to fruits page if successful
+          // store some properties in the session
+          req.session.username = username;
+          req.session.loggedIn = true;
+          // redirect to products page if successful
           res.redirect("/products");
         } else {
           // error if password doesn't match
@@ -69,6 +86,12 @@ router.get("/login", async (req, res) => {
     });
 });
 
+router.get("/logout", (req, res) => {
+  // destroy session and redirect to main page
+  req.session.destroy((err) => {
+    res.redirect("/");
+  });
+});
 
 
 //////////////////////////////////////////
