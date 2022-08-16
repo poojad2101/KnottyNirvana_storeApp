@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
 
 // new route
 router.get("/new", (req, res) => {
-    res.render("products/new");
+    res.render("products/new.liquid");
 });
 
 

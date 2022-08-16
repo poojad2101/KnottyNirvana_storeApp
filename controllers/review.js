@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
 router.get("/:id/new", (req, res) => {
     Product.findById(req.params.id)
         .then((product) => {
-            res.render("reviews/new", {
+            res.render("reviews/new.liquid", {
                 product
             });
         })
